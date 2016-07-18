@@ -19,11 +19,11 @@ namespace PrimeUnitTest
     }
 
     [Test]
-    [TestCase(2)]
-    [TestCase(15)]
-    [TestCase(30)]
-    [TestCase(45)]
-    [TestCase(60)]
+    [TestCase(2u)]
+    [TestCase(15u)]
+    [TestCase(30u)]
+    [TestCase(45u)]
+    [TestCase(60u)]
     public void GeneratePrimeTest(uint time)
     {
       var calculator = new Prime();
@@ -31,11 +31,11 @@ namespace PrimeUnitTest
     }
 
     [Test]
-    [TestCase(2)]
-    [TestCase(15)]
-    [TestCase(30)]
-    [TestCase(45)]
-    [TestCase(60)]
+    [TestCase(2u)]
+    [TestCase(15u)]
+    [TestCase(30u)]
+    [TestCase(45u)]
+    [TestCase(60u)]
     public void GenerateSOETest(uint time)
     {
       var calculator = new SieveOfEratosthenes();
