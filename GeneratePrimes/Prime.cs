@@ -8,30 +8,19 @@ namespace GeneratePrimes
   /// </summary>
   public class Prime
   {
-    readonly int _duration;
-    readonly Stopwatch _watch = new Stopwatch();
-
-    /// <summary>
-    /// Initializes a new instance of <see cref="Prime"/> class.
-    /// </summary>
-    /// <param name="time">Duration to generate prime numbers.</param>
-    public Prime(int time)
-    {
-      if (time < 1)
-        throw new ArgumentException("Invalid duration");
-      _duration = time;
-    }
+    readonly Stopwatch _watch = new Stopwatch();  
 
     /// <summary>
     /// Generates prime numbers for a given duration.
     /// We improve speed by only checking odd numbers for primes.
     /// </summary>
-    public void GeneratePrime()
-    {
+    /// <param name="time">Duration to generate prime numbers.</param>
+    public void GeneratePrime(uint time)
+    {     
       int number = 3;
       int maxPrime = number;
       _watch.Start();
-      while (_watch.Elapsed.TotalSeconds <= _duration)
+      while (_watch.Elapsed.TotalSeconds <= time)
       {
         if (IsPrime(number))
         {
