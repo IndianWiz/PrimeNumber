@@ -8,28 +8,27 @@ namespace GeneratePrimes
   /// </summary>
   public class Prime
   {
-    readonly Stopwatch _watch = new Stopwatch();  
-
     /// <summary>
     /// Generates prime numbers for a given duration.
     /// We improve speed by only checking odd numbers for primes.
     /// </summary>
     /// <param name="time">Duration to generate prime numbers.</param>
     public void GeneratePrime(uint time)
-    {     
+    {
+      Stopwatch watch = new Stopwatch();
       int number = 3;
       int maxPrime = number;
-      _watch.Start();
-      while (_watch.Elapsed.TotalSeconds <= time)
+      watch.Start();
+      while (watch.Elapsed.TotalSeconds <= time)
       {
         if (IsPrime(number))
         {
           maxPrime = number;
-          Console.WriteLine(_watch.Elapsed.Seconds + ":" + maxPrime);
+          Console.WriteLine(watch.Elapsed.Seconds + ":" + maxPrime);
         }
         number += 2;
       }
-      _watch.Stop();
+      watch.Stop();
       Console.WriteLine("Max Prime " + maxPrime);
     }
 
