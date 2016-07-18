@@ -11,7 +11,7 @@ Used both BitArray and Bool array. Bool array uses more memory than BitArray. He
 Max Prime number in 60 secs:- 23148329.
 
 3) Sieve of Eratosphenes using Parallel.Foreach.
-Max Prime number in 60 secs:- 877304471
+Max Prime number in 60 secs:- 87730447
 
 Improvements:- 
 
