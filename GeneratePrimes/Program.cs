@@ -6,8 +6,8 @@ namespace GeneratePrimes
   {
     static void Main(string[] args)
     {
-      Prime prime = new Prime();
-      prime.GeneratePrime(60);
+      SieveOfEratosthenes prime = new SieveOfEratosthenes();
+      prime.GeneratePrimes(60);
       Console.ReadLine();
     }
   }
