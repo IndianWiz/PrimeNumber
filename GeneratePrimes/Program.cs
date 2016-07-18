@@ -8,7 +8,7 @@ namespace GeneratePrimes
     {
       SieveOfEratosthenes prime = new SieveOfEratosthenes();
       prime.GeneratePrimes(60);
-      Console.ReadLine();
+      Console.ReadLine();      
     }
   }
 }

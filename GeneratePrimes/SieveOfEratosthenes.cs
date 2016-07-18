@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace GeneratePrimes
 {
@@ -32,15 +33,16 @@ namespace GeneratePrimes
       Stopwatch watch = new Stopwatch();
       int maxPrime = 2;
       watch.Start();
-      foreach (var prime in GetPrimeList())
+      Parallel.ForEach(GetPrimeList(), (prime, state) =>
       {
         if (watch.Elapsed.TotalSeconds > time)
         {
-          break;
+          state.Stop();
         }
-        maxPrime = prime;
-        Console.WriteLine(watch.Elapsed.TotalSeconds + " : " + prime);
-      }
+        if (prime > maxPrime)
+          maxPrime = prime;
+        Console.WriteLine(watch.Elapsed.Seconds + " : " + prime);
+      });
       watch.Stop();
       Console.WriteLine("Max prime " + maxPrime);
     }
