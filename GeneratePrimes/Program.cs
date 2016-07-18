@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GeneratePrimes
 {
@@ -10,6 +6,9 @@ namespace GeneratePrimes
   {
     static void Main(string[] args)
     {
+      Prime prime = new Prime(60);
+      prime.GeneratePrime();
+      Console.ReadLine();
     }
   }
 }
