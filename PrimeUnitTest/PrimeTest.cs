@@ -29,5 +29,17 @@ namespace PrimeUnitTest
       var calculator = new Prime();
       calculator.GeneratePrime(time);
     }
+
+    [Test]
+    [TestCase(2)]
+    [TestCase(15)]
+    [TestCase(30)]
+    [TestCase(45)]
+    [TestCase(60)]
+    public void GenerateSOETest(uint time)
+    {
+      var calculator = new SieveOfEratosthenes();
+      calculator.GeneratePrimes(time);
+    }
   }
 }
