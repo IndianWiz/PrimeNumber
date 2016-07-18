@@ -14,7 +14,7 @@ namespace GeneratePrimes
   {
     // using a limit lower than int.MaxValue as the int was overflowing to negative.
     // it also saves a lot of time and memory usage.
-    private const int RANGE = 100000000;
+    private const int RANGE = 200000000;
     private readonly BitArray _data;
 
     /// <summary>
@@ -34,16 +34,21 @@ namespace GeneratePrimes
       Stopwatch watch = new Stopwatch();
       int maxPrime = 2;
       watch.Start();
-
-      foreach (var prime in GetPrimeList())
+      Parallel.ForEach(GetPrimeList(), (prime, state) =>
       {
-        if (watch.Elapsed.TotalSeconds >= time)
+        if (watch.Elapsed.TotalSeconds > time)
         {
-          break;
+          state.Stop();                         
         }
-        maxPrime = prime;
-        Console.WriteLine(watch.Elapsed.TotalSeconds + " : " + prime);
-      }
+        else
+        {
+          if (prime > maxPrime)
+          {
+            maxPrime = prime;
+          }
+        }
+        Console.WriteLine(watch.Elapsed.TotalSeconds + " : " + prime);        
+      });
       watch.Stop();
       Console.WriteLine("Max prime " + maxPrime);
     }
